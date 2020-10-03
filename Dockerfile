@@ -56,7 +56,7 @@ Version: ${EMACS_VERSION}\n\
 Section: base\n\
 Priority: optional\n\
 Architecture: amd64\n\
-Depends: gcc-10\n\
+Depends: emacs gcc-10\n\
 Maintainer: Stefan Hackenberg <mail@stefan-hackenberg.de>\n\
 Description: Emacs feature/native-comp build with\n\
  --with-nativecomp\n\
