@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build and deploy
-      run: ./deploy.sh
+      run: ./build.sh
 
     - name: Archive artifacs
       uses: actions/upload-artifact@v2
