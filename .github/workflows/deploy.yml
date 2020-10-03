@@ -15,6 +15,7 @@ jobs:
       run: ./deploy.sh
 
     - name: Archive artifacs
-      uses: actions/download-artifact@v2
+      uses: actions/upload-artifact@v2
       with:
-        name: emacs-jit_*.deb
+        name: emacs-jit
+        path: emacs-jit_*.deb
