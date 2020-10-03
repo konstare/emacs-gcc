@@ -2,9 +2,11 @@
 if [ -d download ]; then
     rm -rf download
 fi
+
+set -e
 mkdir download
 pushd download
-cp ../emacs-jit*.deb .
+cp ../deploy/emacs-jit*.deb .
 wget https://github.com/d12frosted/elpa-mirror/archive/master.zip -O elpa-mirror-master.zip
 git clone https://github.com/syl20bnr/spacemacs.git -b develop
 popd
