@@ -42,7 +42,7 @@ RUN ./autogen.sh && ./configure \
     --with-imagemagick \
     --with-nativecomp \
     --with-json \
-    CFLAGS="-O3 -mtune=native -march=native -fomit-frame-pointer"
+    CFLAGS="-O3 -mtune=x86-64 -march=x86-64 -fomit-frame-pointer"
 
 ENV JOBS=4
 RUN make -j ${JOBS}
