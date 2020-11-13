@@ -11,13 +11,12 @@ The repository is the fork of  [[https://github.com/hackenbergstefan/emacs-jit-b
 [2] no xwidgets
 
 
-## Compile flags
-The [Dockerfile](./Dockerfile) compiles emacs with the following settings:
-- `--with-nativecomp`
-- `--with-mailutils`
-- `--without-xwidgets`
-- `--with-modules`
-- `--with-nativecomp`
-- `--with-json`
-- `--without-makeinfo`
-- `CFLAGS="-O2 -pipe"`
+* The package is compiled with flags:
+--with-nativecomp
+--with-mailutils
+--without-xwidgets
+--with-modules
+--with-nativecomp
+--with-json
+--without-makeinfo
+CFLAGS="-O2 -pipe"
