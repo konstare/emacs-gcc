@@ -1,4 +1,4 @@
-#+TITLE: emacs-jit - Dockerfile for building emacs.deb with native-comp
+#+TITLE: emacs-gcc - Dockerfile for building emacs.deb with native-comp
 
 * Summary
 This repository shows a Dockerfile to create a deb package containing a build
@@ -19,18 +19,20 @@ from head of [[git://git.savannah.gnu.org/emacs.git][emacs' repository]] branch 
 + --without-makeinfo
 + CFLAGS="-O2 -pipe"
 
-* Installation 1: Use [[https://github.com/konstare/emacs-jit-build/actions][GitHub Actions]] 
-The deb package with this recipe is built by =github= and can be found in [[https://github.com/konstare/emacs-jit-build/actions?query=is%3Acompleted][GitHub Actions]].
+* Installation 1: Use [[https://github.com/konstare/emacs-gcc/actions][GitHub Actions]]
+The deb package with this recipe is built by =github= and can be found in [[https://github.com/konstare/emacs-gcc/actions?query=is%3Acompleted][GitHub Actions]].
+
+
 If the deb package is too old: 
 1. fork the project
-2. In [[https://github.com/konstare/emacs-jit-build/actions][GitHub Actions]] allow and run manually the workflow.
+2. In =GitHub Actions= allow and run manually the workflow.
 
 * Installation 2: Compile on your own computer
 ** Requirements
 1. docker
 ** Compilation 
 #+begin_src bash
-git clone https://github.com/konstare/emacs-jit-build
-cd emacs-jit-build
+git clone https://github.com/konstare/emacs-gcc
+cd emacs-gcc
 ./build.sh
 #+end_src

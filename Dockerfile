@@ -53,15 +53,15 @@ RUN make NATIVE_FULL_AOT=1 -j ${JOBS}
 
 # Create package
 RUN EMACS_VERSION=$(sed -ne 's/AC_INIT(GNU Emacs, \([0-9.]\+\), .*/\1/p' configure.ac) \
-    && make install prefix=/opt/emacs-jit_${EMACS_VERSION}/usr/local \
-    && mkdir emacs-jit_${EMACS_VERSION}/DEBIAN && echo "Package: emacs-jit\n\
+    && make install prefix=/opt/emacs-gcc_${EMACS_VERSION}/usr/local \
+    && mkdir emacs-gcc_${EMACS_VERSION}/DEBIAN && echo "Package: emacs-gcc\n\
 Version: ${EMACS_VERSION}\n\
 Section: base\n\
 Priority: optional\n\
 Architecture: amd64\n\
 Depends: libgif7, libotf0, libgccjit0, libm17n-0, libgtk-3-0, librsvg2-2, libtiff5, libjansson4, libacl1\n\
 Maintainer: reichcv@gmail.com\n\
-Description: Emacs feature/native-comp build with\n\
+Description: Emacs with feature/native-comp\n\
     --with-nativecomp\n\
     --with-json\n\
     --with-gnutls\n\
@@ -72,7 +72,7 @@ Description: Emacs feature/native-comp build with\n\
     --without-makeinfo\n\
     --with-mailutils\n\
  CFLAGS='-O2 -pipe'" \
-    >> emacs-jit_${EMACS_VERSION}/DEBIAN/control \
-    && dpkg-deb --build emacs-jit_${EMACS_VERSION} \
+    >> emacs-gcc_${EMACS_VERSION}/DEBIAN/control \
+    && dpkg-deb --build emacs-gcc_${EMACS_VERSION} \
     && mkdir /opt/deploy \
-    && mv /opt/emacs-jit_*.deb /opt/deploy
+    && mv /opt/emacs-gcc_*.deb /opt/deploy
