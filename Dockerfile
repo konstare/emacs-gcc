@@ -1,6 +1,7 @@
 FROM ubuntu:20.10
 WORKDIR /opt
 ENV DEBIAN_FRONTEND=noninteractive
+ENV JOBS=5
 
 RUN sed -i 's/# deb-src/deb-src/' /etc/apt/sources.list &&\
     apt-get update && apt-get install --yes --no-install-recommends  \
@@ -48,7 +49,6 @@ RUN ./autogen.sh && ./configure \
     --with-mailutils \
     CFLAGS="-O2 -pipe"
 
-ENV JOBS=5
 RUN make NATIVE_FULL_AOT=1 -j ${JOBS}
 
 # Create package

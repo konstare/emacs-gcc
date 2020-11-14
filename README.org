@@ -2,13 +2,13 @@
 
 * Summary
 This repository shows a Dockerfile to create a deb package containing a build
-from head of emacs' repository branch =feature/native-comp=.
-
-Emacs source can be downloaded from [[git://git.savannah.gnu.org/emacs.git][git://git.savannah.gnu.org/emacs.git]]
+from head of [[git://git.savannah.gnu.org/emacs.git][emacs' repository]] branch =feature/native-comp=.
 
 ** The repository is the fork of  [[https://github.com/hackenbergstefan/emacs-jit-build][the repository]], with few changes: 
 1. The deb is built for  ubuntu 20.10, so no libgccjit mess.
 2. no xwidgets
+3. no imagemagick. Emacs now supports resizing and rotating of images without ImageMagick.
+4. all =.el= files are compiled. ~make NATIVE_FULL_AOT=1~
 ** The package is compiled with flags:
 + --with-nativecomp
 + --with-mailutils
@@ -18,3 +18,19 @@ Emacs source can be downloaded from [[git://git.savannah.gnu.org/emacs.git][git:
 + --with-json
 + --without-makeinfo
 + CFLAGS="-O2 -pipe"
+
+* Installation 1: Use [[https://github.com/konstare/emacs-jit-build/actions][GitHub Actions]] 
+The deb package with this recipe is built by =github= and can be found in [[https://github.com/konstare/emacs-jit-build/actions?query=is%3Acompleted][GitHub Actions]].
+If the deb package is too old: 
+1. fork the project
+2. In [[https://github.com/konstare/emacs-jit-build/actions][GitHub Actions]] allow and run manually the workflow.
+
+* Installation 2: Compile on your own computer
+** Requirements
+1. docker
+** Compilation 
+#+begin_src bash
+git clone https://github.com/konstare/emacs-jit-build
+cd emacs-jit-build
+./build.sh
+#+end_src
