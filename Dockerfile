@@ -27,8 +27,7 @@ RUN sed -i 's/# deb-src/deb-src/' /etc/apt/sources.list &&\
     libtiff-dev \
     libjbig-dev \
     libncurses-dev\
-    liblcms2-dev\
-    libxrender-dev
+    liblcms2-dev
 
 
 # Clone emacs
