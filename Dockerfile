@@ -30,15 +30,15 @@ RUN sed -i 's/# deb-src/deb-src/' /etc/apt/sources.list &&\
     liblcms2-dev
 
 
-# Clone emacs
-RUN git clone --depth 1 git://git.savannah.gnu.org/emacs.git -b feature/native-comp emacs \
+# Clone emacs  -b feature/native-comp
+RUN git clone --depth 1 git://git.savannah.gnu.org/emacs.git emacs \
     && mv emacs/* .
 
 # Build
 ENV CC="gcc-10"
 RUN ./autogen.sh && ./configure \
     --prefix "/usr/local" \
-    --with-nativecomp \
+    --with-native-compilation \
     --with-json \
     --with-gnutls  \
     --with-rsvg  \
@@ -61,8 +61,8 @@ Priority: optional\n\
 Architecture: amd64\n\
 Depends: libgif7, libotf0, libgccjit0, libm17n-0, libgtk-3-0, librsvg2-2, libtiff5, libjansson4, libacl1\n\
 Maintainer: reichcv@gmail.com\n\
-Description: Emacs with feature/native-comp\n\
-    --with-nativecomp\n\
+Description: Emacs with native compilation\n\
+    --with-native-compilation\n\
     --with-json\n\
     --with-gnutls\n\
     --with-rsvg\n\

@@ -1,9 +1,9 @@
 #+TITLE: emacs-gcc - Dockerfile for building emacs.deb with native-comp
 
-* Summary
-This repository shows a Dockerfile to create a deb package containing a build
-from head of [[git://git.savannah.gnu.org/emacs.git][emacs' repository]] branch =feature/native-comp=.
+⛔️ DEPRECATED. Consider Emacs  [[https://github.com/konstare/emacs-gcc-pgtk/][with native compilation and pure GTK]]
 
+* Summary
+This repository shows a Dockerfile to create a emacs deb package with native compilation.
 The similar [[https://github.com/konstare/emacs-gcc-pgtk][repository]] shows a Dockerfile for nativecomp and pure GTK support.
 
 ** The repository is the fork of  [[https://github.com/hackenbergstefan/emacs-jit-build][the repository]], with few changes: 
@@ -12,11 +12,10 @@ The similar [[https://github.com/konstare/emacs-gcc-pgtk][repository]] shows a D
 3. no imagemagick. Emacs now supports resizing and rotating of images without ImageMagick.
 4. all =.el= files are compiled. ~make NATIVE_FULL_AOT=1~
 ** The package is compiled with flags:
-+ --with-nativecomp
 + --with-mailutils
 + --without-xwidgets
 + --with-modules
-+ --with-nativecomp
++ --with-native-compilation
 + --with-json
 + --without-makeinfo
 + CFLAGS="-O2 -pipe"
