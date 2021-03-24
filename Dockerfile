@@ -5,6 +5,8 @@ ENV JOBS=5
 
 RUN sed -i 's/# deb-src/deb-src/' /etc/apt/sources.list &&\
     apt-get update && apt-get install --yes --no-install-recommends  \
+    apt-transport-https\
+    ca-certificates\
     build-essential \
     autoconf \
     git \
