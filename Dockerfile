@@ -32,7 +32,8 @@ RUN sed -i 's/# deb-src/deb-src/' /etc/apt/sources.list &&\
 
 
 # Clone emacs  -b feature/native-comp
-RUN git clone --depth 1 git://git.savannah.gnu.org/emacs.git emacs \
+RUN update-ca-certificates \
+    && git clone --depth 1 git://git.savannah.gnu.org/emacs.git -b feature/native-comp emacs \
     && mv emacs/* .
 
 # Build
